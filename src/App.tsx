@@ -10,7 +10,7 @@ import HelpPage from './pages/HelpPage';
 function App() {
   return (
     <CurrencyProvider>
-      <Router>
+      <Router basename="/exchange">
         <ScrollToTop />
         <div className="min-h-screen bg-gray-50 flex flex-col">
           <Navbar />
