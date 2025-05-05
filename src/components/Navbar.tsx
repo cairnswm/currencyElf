@@ -50,21 +50,21 @@ const Navbar: React.FC = () => {
           <div className="md:hidden pt-4 pb-3">
             <div className="flex flex-col space-y-3">
               <Link 
-                to="/" 
+                to="/exchange/" 
                 className="text-gray-600 hover:text-green-500 transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link 
-                to="/converter" 
+                to="/exchange/converter" 
                 className="text-gray-600 hover:text-green-500 transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Converter
               </Link>
               <Link 
-                to="/help" 
+                to="/exchange/help" 
                 className="text-gray-600 hover:text-green-500 transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
