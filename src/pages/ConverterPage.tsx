@@ -4,7 +4,7 @@ import ConversionResults from '../components/ConversionResults';
 import { useCurrency } from '../context/CurrencyContext';
 
 const ConverterPage: React.FC = () => {
-  const { amount, setAmount, error } = useCurrency();
+  const { amount, setAmount, error, ratesDate } = useCurrency();
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -53,7 +53,9 @@ const ConverterPage: React.FC = () => {
             />
           </div>
         </div>
-        
+        <div>
+          Date of Rates: {ratesDate ? ratesDate.toLocaleDateString() : "Loading..."}
+        </div>
         <ConversionResults />
       </div>
     </div>
