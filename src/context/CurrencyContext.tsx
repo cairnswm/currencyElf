@@ -37,6 +37,9 @@ interface CurrencyProviderProps {
 }
 
 export const CurrencyProvider: React.FC<CurrencyProviderProps> = ({ children }) => {
+  const host = window.location.hostname;
+  console.log("Host:", host);
+  const BASE_URL = host === "localhost" ? "http://localhost/cairnsgames/" : "https://cairnsgames.co.za/";
   const [currencies, setCurrencies] = useState<Currency[]>([]);
   const [baseCurrency, setBaseCurrency] = useState<string>(() => 
     localStorage.getItem('baseCurrency') || 'ZAR'
@@ -71,7 +74,7 @@ export const CurrencyProvider: React.FC<CurrencyProviderProps> = ({ children }) 
   useEffect(() => {
     const fetchCurrencies = async () => {
       try {
-        const response = await fetch('https://cairnsgames.co.za/php/exchange/list_currencies.php');
+        const response = await fetch(`${BASE_URL}php/exchange/list_currencies.php`);
         if (!response.ok) {
           throw new Error('Failed to fetch currencies');
         }
@@ -93,7 +96,7 @@ export const CurrencyProvider: React.FC<CurrencyProviderProps> = ({ children }) 
   useEffect(() => {
     const fetchBaseRates = async () => {
       try {
-        const response = await fetch('https://cairnsgames.co.za/php/exchange/list_rates.php?base=EUR');
+        const response = await fetch(`${BASE_URL}php/exchange/list_rates.php?base=EUR`);
         if (!response.ok) {
           throw new Error('Failed to fetch base rates');
         }
